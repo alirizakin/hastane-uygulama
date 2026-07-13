@@ -2,8 +2,8 @@ name: Aylık Yemek Listesi Güncelleme
 
 on:
   schedule:
-    - cron: '0 0 1 * *'   # Her ayın 1'i saat 00:00 UTC
-  workflow_dispatch:      # Manuel çalıştırmaya izin ver
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,12 +15,8 @@ jobs:
       - name: Repo'yu çek
         uses: actions/checkout@v4
 
-      - name: Mevcut xlsx dosyasını indir (SİTE)
-        run: |
-          mkdir -p data
-          curl -L -f -o data/yemek_listesi.xlsx \
-            "https://ispartasehir.saglik.gov.tr/TR-471595/yemek-listesi.html" \
-            || echo "İndirme başarısız, dosya değişmedi."
+      - name: Mevcut xlsx bağlantısını bul ve indir
+        run: python3 scripts/update_menu.py
 
       - name: Değişiklikleri kontrol et ve push et
         run: |
