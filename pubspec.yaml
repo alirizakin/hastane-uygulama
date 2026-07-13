@@ -1,0 +1,26 @@
+name: hastane_uygulama
+description: Isparta Şehir Hastanesi Mobil Uygulama
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.5.0
+  excel: ^4.0.0
+  url_launcher: ^6.2.0
+  http: ^1.2.0
+  google_maps_flutter: ^2.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo.png
