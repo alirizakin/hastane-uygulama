@@ -6,19 +6,19 @@ class FeedbackScreen extends StatelessWidget {
 
   static const List<_LinkItem> _items = [
     _LinkItem(
-      title: 'Hasta Görüşleri',
-      url: 'https://ispartasehir.saglik.gov.tr/TR-1555428/oneri-ve-gorusleriniz.html',
+      title: 'Hasta Görüş ve Öneri Formu',
+      url: 'https://ispartasehir.saglik.gov.tr/Form-TR/1911/hasta-gorus-ve-oneri-formu.html',
       icon: Icons.people_alt_rounded,
     ),
     _LinkItem(
-      title: 'Personel Görüşleri',
-      url: 'https://ispartasehir.saglik.gov.tr/TR-1555428/oneri-ve-gorusleriniz.html',
+      title: 'Çalışan Görüş ve Öneri Formu',
+      url: 'https://ispartasehir.saglik.gov.tr/Form-TR/4326/calisan-gorus-ve-oneri-formu.html',
       icon: Icons.badge_rounded,
     ),
     _LinkItem(
-      title: 'Memnuniyet Bildirimi',
-      url: 'https://ispartasehir.saglik.gov.tr/TR-1555428/oneri-ve-gorusleriniz.html',
-      icon: Icons.thumb_up_alt_rounded,
+      title: 'Çalışan Personeller İçin Yönetimden Randevu Alma Sistemi',
+      url: 'https://ispartasehir.saglik.gov.tr/Form-TR/4900/calisan-personeller-icin-yonetimden-randevu-alma.html',
+      icon: Icons.event_available_rounded,
     ),
   ];
 
@@ -33,22 +33,19 @@ class FeedbackScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const Text(
-            'Aşağıdan ilgili formu seçin. Formlar uygulama içinde açılır.',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-          ),
+          const _HeaderBox(),
           const SizedBox(height: 16),
           for (final item in _items)
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: SizedBox(
-                height: 64,
+                height: 66,
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF1C1C1C),
                     elevation: 2,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -69,6 +66,47 @@ class FeedbackScreen extends StatelessWidget {
                 ),
               ),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HeaderBox extends StatelessWidget {
+  const _HeaderBox();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFFD32F2F), Color(0xFFEF5350)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: [
+          Image.asset('assets/images/logo.png', width: 52, height: 52),
+          const SizedBox(width: 12),
+          const Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Öneri Memnuniyet',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 18),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  'Formları uygulama içinden açın.',
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
