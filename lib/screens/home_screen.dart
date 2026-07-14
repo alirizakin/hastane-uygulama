@@ -30,38 +30,37 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            top: 0,
-            child: WebViewWidget(controller: _controller),
-          ),
-          if (_isLoading)
-            Container(
-              color: Colors.white.withOpacity(0.92),
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(
-                      'assets/images/logo.png',
-                      width: 132,
-                      height: 132,
-                    ),
-                    const SizedBox(height: 16),
-                    const CircularProgressIndicator(
-                      color: Color(0xFFD32F2F),
-                    ),
-                    const SizedBox(height: 12),
-                    const Text(
-                      'Isparta Şehir Hastanesi yükleniyor...',
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                  ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            WebViewWidget(controller: _controller),
+            if (_isLoading)
+              Container(
+                color: Colors.white.withOpacity(0.92),
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        'assets/images/logo.png',
+                        width: 132,
+                        height: 132,
+                      ),
+                      const SizedBox(height: 16),
+                      const CircularProgressIndicator(
+                        color: Color(0xFFD32F2F),
+                      ),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'Isparta Şehir Hastanesi yükleniyor...',
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

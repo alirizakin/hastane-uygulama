@@ -6,7 +6,7 @@ class ContactScreen extends StatelessWidget {
 
   static const String address =
       'Sanayi Mahallesi 104. Cad. No:51 32200 Merkez/ISPARTA';
-  static const String phone = '+90.246 213 44 00 - 99 (100 Hat)';
+  static const String phone = '+90 246 213 44 00';
   static const String email = 'ispartasehir@saglik.gov.tr';
   static const String mapsUrl =
       'https://www.google.com/maps/search/?api=1&query=Isparta+Sehir+Hastanesi';
