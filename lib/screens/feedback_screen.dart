@@ -4,21 +4,21 @@ import 'package:webview_flutter/webview_flutter.dart';
 class FeedbackScreen extends StatelessWidget {
   const FeedbackScreen({super.key});
 
-  static const List<_LinkItem> items = [
+  static const List<_LinkItem> _items = [
     _LinkItem(
-      title: 'Hasta Görüş ve Öneri Formu',
+      title: 'Hasta Görüşleri',
       url: 'https://ispartasehir.saglik.gov.tr/TR-1555428/oneri-ve-gorusleriniz.html',
-      icon: Icons.people,
+      icon: Icons.people_alt_rounded,
     ),
     _LinkItem(
-      title: 'Personel Görüş ve Öneri Formu',
+      title: 'Personel Görüşleri',
       url: 'https://ispartasehir.saglik.gov.tr/TR-1555428/oneri-ve-gorusleriniz.html',
-      icon: Icons.badge,
+      icon: Icons.badge_rounded,
     ),
     _LinkItem(
       title: 'Memnuniyet Bildirimi',
       url: 'https://ispartasehir.saglik.gov.tr/TR-1555428/oneri-ve-gorusleriniz.html',
-      icon: Icons.thumb_up,
+      icon: Icons.thumb_up_alt_rounded,
     ),
   ];
 
@@ -26,7 +26,7 @@ class FeedbackScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Öneri & Memnuniyet'),
+        title: const Text('Öneri Memnuniyet'),
         backgroundColor: const Color(0xFFD32F2F),
         foregroundColor: Colors.white,
       ),
@@ -35,10 +35,10 @@ class FeedbackScreen extends StatelessWidget {
         children: [
           const Text(
             'Aşağıdan ilgili formu seçin. Formlar uygulama içinde açılır.',
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 16),
-          for (final item in items)
+          for (final item in _items)
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: SizedBox(
@@ -61,7 +61,10 @@ class FeedbackScreen extends StatelessWidget {
                   icon: Icon(item.icon, color: const Color(0xFFD32F2F)),
                   label: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(item.title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                    child: Text(
+                      item.title,
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
               ),
@@ -115,7 +118,9 @@ class _InAppBrowserScreenState extends State<InAppBrowserScreen> {
         children: [
           WebViewWidget(controller: _controller),
           if (_loading)
-            const Center(child: CircularProgressIndicator(color: Color(0xFFD32F2F))),
+            const Center(
+              child: CircularProgressIndicator(color: Color(0xFFD32F2F)),
+            ),
         ],
       ),
     );

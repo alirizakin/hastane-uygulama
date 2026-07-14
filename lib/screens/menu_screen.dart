@@ -27,6 +27,7 @@ class _MenuScreenState extends State<MenuScreen> {
   }
 
   Future<void> _loadMenu() async {
+    if (!mounted) return;
     setState(() {
       _loading = true;
       _error = null;
@@ -39,67 +40,68 @@ class _MenuScreenState extends State<MenuScreen> {
       }
       final bytes = response.bodyBytes;
       final parsed = _parseWorkbook(bytes, _day);
+      if (!mounted) return;
       setState(() => _menu = parsed);
     } catch (e) {
+      if (!mounted) return;
       setState(() => _error = e.toString());
-    } finally {
-      setState(() => _loading = false);
     }
+
+    if (!mounted) return;
+    setState(() => _loading = false);
   }
 
   Future<void> _nextDay() async {
-    setState(() {
-      _day = _day.add(const Duration(days: 1));
-    });
+    setState(() => _day = _day.add(const Duration(days: 1)));
     await _loadMenu();
   }
 
   Future<void> _prevDay() async {
-    setState(() {
-      _day = _day.subtract(const Duration(days: 1));
-    });
+    setState(() => _day = _day.subtract(const Duration(days: 1)));
     await _loadMenu();
   }
 
   _DayMenu? _parseWorkbook(Uint8List bytes, DateTime target) {
     final excel = Excel.decodeBytes(bytes);
     for (final table in excel.tables.values) {
-      for (final row in table.rows) {
+      final rows = table.rows;
+      for (var i = 0; i < rows.length; i++) {
+        final row = rows[i];
         final date = _tryParseDate(row.isNotEmpty ? row[0]?.value : null);
-        if (date == null) continue;
-        if (!_sameDate(date, target)) continue;
+        if (date == null || !_sameDate(date, target)) continue;
 
-        final breakfast = _clean(_cell(row, 7));
-        final lunch = _clean(_cell(row, 15));
-        final dinner = _clean(_cell(row, 23));
+        final nextDateIndex = _nextDateIndex(rows, i + 1);
+        final end = nextDateIndex == -1 ? rows.length : nextDateIndex;
+        final block = rows.sublist(i, end);
 
-        final fallbackBreakfast = _collectColumn(rows: table.rows, dateRowIndex: table.rows.indexOf(row), columnIndex: 7);
-        final fallbackLunch = _collectColumn(rows: table.rows, dateRowIndex: table.rows.indexOf(row), columnIndex: 15);
-        final fallbackDinner = _collectColumn(rows: table.rows, dateRowIndex: table.rows.indexOf(row), columnIndex: 23);
+        final breakfast = _collectBlock(block, [0, 7]);
+        final lunch = _collectBlock(block, [15]);
+        final dinner = _collectBlock(block, [23]);
 
-        return _DayMenu(
-          date: date,
-          breakfast: breakfast.isNotEmpty ? breakfast : fallbackBreakfast,
-          lunch: lunch.isNotEmpty ? lunch : fallbackLunch,
-          dinner: dinner.isNotEmpty ? dinner : fallbackDinner,
-        );
+        return _DayMenu(date: date, breakfast: breakfast, lunch: lunch, dinner: dinner);
       }
     }
     return null;
   }
 
-  String _collectColumn({
-    required List<List<Data?>> rows,
-    required int dateRowIndex,
-    required int columnIndex,
-  }) {
-    final items = <String>[];
-    for (var i = dateRowIndex + 1; i < rows.length; i++) {
+  int _nextDateIndex(List<List<Data?>> rows, int start) {
+    for (var i = start; i < rows.length; i++) {
       final row = rows[i];
       final date = _tryParseDate(row.isNotEmpty ? row[0]?.value : null);
-      if (date != null) break;
-      final value = _clean(_cell(row, columnIndex));
-      if (value.isNotEmpty) items.add(value);
+      if (date != null) return i;
+    }
+    return -1;
+  }
+
+  String _collectBlock(List<List<Data?>> block, List<int> columns) {
+    final items = <String>[];
+    for (final row in block) {
+      for (final col in columns) {
+        final value = _clean(_cell(row, col));
+        if (value.isNotEmpty && !items.contains(value)) {
+          items.add(value);
+        }
+      }
     }
     return items.join(' • ');
   }
@@ -117,10 +119,8 @@ class _MenuScreenState extends State<MenuScreen> {
     final text = value.toString().trim();
     if (text.isEmpty) return null;
 
-    // Excel bazen tarihleri string ya da seri sayı olarak verebilir.
     final asNumber = double.tryParse(text.replaceAll(',', '.'));
     if (asNumber != null && asNumber > 20000 && asNumber < 60000) {
-      // Excel serial date -> 1899-12-30 base
       final base = DateTime(1899, 12, 30);
       return DateTime(base.year, base.month, base.day).add(Duration(days: asNumber.round()));
     }
@@ -138,8 +138,7 @@ class _MenuScreenState extends State<MenuScreen> {
     return null;
   }
 
-  bool _sameDate(DateTime a, DateTime b) =>
-      a.year == b.year && a.month == b.month && a.day == b.day;
+  bool _sameDate(DateTime a, DateTime b) => a.year == b.year && a.month == b.month && a.day == b.day;
 
   @override
   Widget build(BuildContext context) {
@@ -147,35 +146,36 @@ class _MenuScreenState extends State<MenuScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Günün Menüsü'),
+        title: const Text('Yemek Listesi'),
         backgroundColor: const Color(0xFFD32F2F),
         foregroundColor: Colors.white,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: RefreshIndicator(
+        onRefresh: _loadMenu,
+        child: ListView(
+          padding: const EdgeInsets.all(16),
           children: [
-            Text(
-              'Bugün • $titleDate',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 12),
-            if (_loading) ...[
-              const Center(child: Padding(
-                padding: EdgeInsets.all(32),
-                child: CircularProgressIndicator(color: Color(0xFFD32F2F)),
-              )),
-            ] else if (_error != null) ...[
-              _ErrorBox(message: _error!),
-            ] else if (_menu == null) ...[
-              const _ErrorBox(message: 'Bugüne ait menü bulunamadı.'),
-            ] else ...[
-              _MealCard(title: 'Sabah', icon: Icons.free_breakfast, items: _menu!.breakfast),
-              _MealCard(title: 'Öğle', icon: Icons.lunch_dining, items: _menu!.lunch),
-              _MealCard(title: 'Akşam', icon: Icons.dinner_dining, items: _menu!.dinner),
+            _HeaderCard(dateText: titleDate),
+            const SizedBox(height: 14),
+            if (_loading)
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 48),
+                child: Center(
+                  child: CircularProgressIndicator(color: Color(0xFFD32F2F)),
+                ),
+              )
+            else if (_error != null)
+              _ErrorBox(message: _error!)
+            else if (_menu == null)
+              const _ErrorBox(message: 'Bugüne ait yemek listesi bulunamadı.'),
+            if (_menu != null) ...[
+              _MealCard(title: 'Sabah', icon: Icons.free_breakfast_rounded, items: _menu!.breakfast),
+              const SizedBox(height: 12),
+              _MealCard(title: 'Öğle', icon: Icons.lunch_dining_rounded, items: _menu!.lunch),
+              const SizedBox(height: 12),
+              _MealCard(title: 'Akşam', icon: Icons.dinner_dining_rounded, items: _menu!.dinner),
             ],
-            const Spacer(),
+            const SizedBox(height: 18),
             Row(
               children: [
                 Expanded(
@@ -206,6 +206,63 @@ class _MenuScreenState extends State<MenuScreen> {
   }
 }
 
+class _HeaderCard extends StatelessWidget {
+  final String dateText;
+  const _HeaderCard({required this.dateText});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFFD32F2F), Color(0xFFEF5350)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(22),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFFD32F2F).withOpacity(.18),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 54,
+            height: 54,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(.18),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Icon(Icons.restaurant_menu_rounded, color: Colors.white, size: 30),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Yemek Listesi',
+                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  dateText,
+                  style: TextStyle(color: Colors.white.withOpacity(.92), fontSize: 14),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _DayMenu {
   final DateTime date;
   final String breakfast;
@@ -229,31 +286,47 @@ class _MealCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 3,
-      margin: const EdgeInsets.only(bottom: 12),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CircleAvatar(
-              backgroundColor: const Color(0xFFD32F2F).withOpacity(.12),
-              child: Icon(icon, color: const Color(0xFFD32F2F)),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                  const SizedBox(height: 6),
-                  Text(items.isEmpty ? 'Veri yok' : items, style: const TextStyle(height: 1.4)),
-                ],
+    final colors = switch (title) {
+      'Sabah' => const [Color(0xFFFFF7E6), Color(0xFFFFE0B2)],
+      'Öğle' => const [Color(0xFFE8F8F6), Color(0xFFB2DFDB)],
+      _ => const [Color(0xFFF4F0FF), Color(0xFFD1C4E9)],
+    };
+
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(colors: colors),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Card(
+        elevation: 0,
+        color: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                radius: 24,
+                backgroundColor: const Color(0xFFD32F2F),
+                child: Icon(icon, color: Colors.white),
               ),
-            ),
-          ],
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+                    const SizedBox(height: 8),
+                    Text(
+                      items.isEmpty ? 'Veri yok' : items,
+                      style: const TextStyle(height: 1.4, fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -270,7 +343,7 @@ class _ErrorBox extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.red.shade50,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.red.shade200),
       ),
       child: Text(message, style: TextStyle(color: Colors.red.shade800)),

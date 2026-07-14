@@ -48,7 +48,7 @@ class ContactScreen extends StatelessWidget {
               value: phone,
               onTap: () => _launch('tel:$phone'),
             ),
-            _InfoTile(
+            const _InfoTile(
               icon: Icons.print,
               title: 'Faks',
               value: fax,
