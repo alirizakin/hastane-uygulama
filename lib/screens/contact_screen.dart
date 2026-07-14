@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
@@ -9,6 +10,7 @@ class ContactScreen extends StatelessWidget {
   static const String fax = '+90 246 214 10 01';
   static const String email = 'info@ispartasehir.saglik.gov.tr';
   static const String mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Isparta+Sehir+Hastanesi';
+  static const String mapsEmbedUrl = 'https://www.google.com/maps?q=Isparta+Sehir+Hastanesi&output=embed';
 
   Future<void> _launch(String url) async {
     final uri = Uri.parse(url);
@@ -19,6 +21,10 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mapController = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse(mapsEmbedUrl));
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('İletişim'),
@@ -57,19 +63,11 @@ class ContactScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ClipRRect(
               borderRadius: BorderRadius.circular(18),
-              child: Container(
-                height: 220,
-                color: Colors.grey.shade200,
+              child: SizedBox(
+                height: 260,
                 child: Stack(
                   children: [
-                    const Positioned.fill(
-                      child: Center(
-                        child: Text(
-                          'Harita görünümü için\ncihazdaki harita uygulaması açılabilir',
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
+                    Positioned.fill(child: WebViewWidget(controller: mapController)),
                     Positioned(
                       right: 16,
                       bottom: 16,
