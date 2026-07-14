@@ -1,0 +1,685 @@
+{
+  "2026-07-01": {
+    "breakfast": [
+      "KAŞAR PEYNİR",
+      "TOYGA ÇORBA",
+      "SİYAH ZEYTİN",
+      "SİMİT",
+      "TAHİN PEKMEZ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "MANTAR ÇORBA",
+      "PİLİÇ ROTİ",
+      "ÖZBEK PİLAVI",
+      "AKDENİZ SALATA"
+    ],
+    "dinner": [
+      "EZOGELİN ÇORBA",
+      "ADANA KEBAP/LAVAŞ",
+      "BABAGANNUŞ",
+      "ŞEKERPARE"
+    ]
+  },
+  "2026-07-02": {
+    "breakfast": [
+      "KREM PEYNİR",
+      "MERCİMEK ÇORBA",
+      "YEŞİL ZEYTİN",
+      "POĞAÇA",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "TAVUKSUYU ÇORBA",
+      "KABAK KALYE",
+      "ERİŞTE KAVURMA",
+      "KARPUZ"
+    ],
+    "dinner": [
+      "TARHANA ÇORBA",
+      "BELEN KÖFTE",
+      "TEREYAĞLI BULGUR PİLAVI",
+      "KASE YOĞURT"
+    ]
+  },
+  "2026-07-03": {
+    "breakfast": [
+      "YUMURTA",
+      "YAYLA ÇORBA",
+      "SİYAH ZEYTİN",
+      "ELMA DİLİM PATATES",
+      "TEREYAĞ-REÇEL",
+      "MENEMEN",
+      "ÇAY"
+    ],
+    "lunch": [
+      "ÇEŞMİNİGAR ÇORBA",
+      "DANA ROSTO/PÜRE(120)",
+      "SEBZE BUKETİ",
+      "KADAYIFLI MUHALLEBİ"
+    ],
+    "dinner": [
+      "ŞAFAK ÇORBA",
+      "ETLİ NOHUT",
+      "ŞEHRİYELİ PİRİNÇ PİLAVI",
+      "TURŞU"
+    ]
+  },
+  "2026-07-04": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "EZOGELİN ÇORBA",
+      "YEŞİL ZEYTİN",
+      "HAVUÇLU KEK",
+      "FINDIK KREMASI",
+      "SÜT"
+    ],
+    "lunch": [
+      "DOMATES ÇORBA",
+      "SULU KÖFTE",
+      "KALEM BÖREK",
+      "VİŞNE KOMPOSTO"
+    ],
+    "dinner": [
+      "TERBİYELİ TEL ŞEHRİYE ÇORBA",
+      "KIYMALI YUMURTA",
+      "SOSLU SPAGETTİ",
+      "KAVUN"
+    ]
+  },
+  "2026-07-05": {
+    "breakfast": [
+      "LABNE",
+      "PAÇA ÇORBA",
+      "SİYAH ZEYTİN",
+      "PATATES KIZARTMASI",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "BROKOLİ ÇORBA",
+      "ET MANGALYON",
+      "PİRİNÇ PİLAVI",
+      "GÖKKUŞAĞI SALATA"
+    ],
+    "dinner": [
+      "GÜLÜKLÜ ÇORBA",
+      "MANTI",
+      "KARIŞIK KIZARTMA",
+      "MOZAİK PASTA"
+    ]
+  },
+  "2026-07-06": {
+    "breakfast": [
+      "KAŞAR PEYNİR",
+      "EZOGELİN ÇORBA",
+      "YEŞİL ZEYTİN",
+      "SİMİT",
+      "TEREYAĞ-BAL",
+      "ÇAY"
+    ],
+    "lunch": [
+      "ARPA ŞEHRİYE ÇORBA",
+      "ETLİ TAZE FASULYE",
+      "PEYNİRLİ MAKARNA",
+      "PEMBE SULTAN"
+    ],
+    "dinner": [
+      "MISIR ÇORBA",
+      "DALYAN KÖFTE",
+      "BULGUR PİLAVI",
+      "NEKTARİN"
+    ]
+  },
+  "2026-07-07": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "YAYLA ÇORBA",
+      "SİYAH ZEYTİN",
+      "ELMA DİL.PATATES",
+      "TAHİN PEKMEZ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "YAYLA ÇORBA",
+      "ŞNİTZEL/PAT.SOTE",
+      "ZY.BARBUNYA",
+      "BROWNIE"
+    ],
+    "dinner": [
+      "KIRMIZI SEBZE ÇORBA",
+      "TAS KEBABI",
+      "MELEK PİLAVI",
+      "ÇOBAN SALATA"
+    ]
+  },
+  "2026-07-08": {
+    "breakfast": [
+      "KREM PEYNİR",
+      "MERCİMEK ÇORBA",
+      "YEŞİL ZEYTİN",
+      "AÇMA",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "MERCİMEK ÇORBA",
+      "KEKİK SOSLU KÖFTE",
+      "SEBZELİ BULGUR PİLAVI",
+      "KAYISI"
+    ],
+    "dinner": [
+      "DOMATES ÇORBA",
+      "GÖKSU SANDAL",
+      "CEVİZLİ ERİŞTE",
+      "HAYDARİ"
+    ]
+  },
+  "2026-07-09": {
+    "breakfast": [
+      "YUMURTA",
+      "YAYLA ÇORBA",
+      "SİYAH ZEYTİN",
+      "SİMİT",
+      "TEREYAĞ-REÇEL",
+      "ÇAY"
+    ],
+    "lunch": [
+      "TAVUKSUYU ÇORBA",
+      "ETLİ KURU FASULYE",
+      "PİRİNÇ PİLAVI",
+      "TURŞU"
+    ],
+    "dinner": [
+      "TOYGA ÇORBA",
+      "TAVUK ŞİŞ/ELMA DİL.PATATES",
+      "ZY.MANTAR",
+      "BÖĞÜRTLEN SOSLU MUHALLEBİ"
+    ]
+  },
+  "2026-07-10": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "EZOGELİN ÇORBA",
+      "YEŞİL ZEYTİN",
+      "PATATES KIZARTMASI",
+      "FINDIK KREMASI",
+      "ÇAY"
+    ],
+    "lunch": [
+      "TARHANA ÇORBA",
+      "ÇOBAN KAVURMA(120)",
+      "DOMATES SOSLU SPAGETTİ",
+      "MEVSİM SALATA"
+    ],
+    "dinner": [
+      "SOĞAN ÇORBA",
+      "ETLİ TÜRLÜ",
+      "PEYNİRLİ TEPSİ BÖREĞİ",
+      "KARIŞIK KOMPOSTO"
+    ]
+  },
+  "2026-07-11": {
+    "breakfast": [
+      "LABNE",
+      "TAVUKSUYU ÇORBA",
+      "SİYAH ZEYTİN",
+      "HAVUÇLU KEK",
+      "TEREYAĞ-BAL",
+      "SÜT"
+    ],
+    "lunch": [
+      "TEL ŞEHRİYE ÇORBA",
+      "BUT IZGARA/DOM.BİBER",
+      "ISPANAK GRATEN",
+      "SARAY SARMA"
+    ],
+    "dinner": [
+      "ÇEŞMİNİGAR ÇORBA",
+      "İZMİR KÖFTE",
+      "ÖZBEK PİLAVI",
+      "MUZ"
+    ]
+  },
+  "2026-07-12": {
+    "breakfast": [
+      "YUMURTA",
+      "MERCİMEK ÇORBA",
+      "YEŞİL ZEYTİN",
+      "ELMA DİL.PATATES",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "ARABAŞI ÇORBA",
+      "ETLİ BAMYA",
+      "BULGUR PİLAVI",
+      "HAVUÇ TARATOR"
+    ],
+    "dinner": [
+      "ŞAFAK ÇORBA",
+      "PÜRELİ KEBAP",
+      "PENNE MAKARNA",
+      "BAHÇE SALATA"
+    ]
+  },
+  "2026-07-13": {
+    "breakfast": [
+      "KREM PEYNİR",
+      "YAYLA ÇORBA",
+      "SİYAH ZEYTİN",
+      "AÇMA",
+      "TAHİN PEKMEZ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "MANTAR ÇORBA",
+      "ÇİFTLİK KÖFTE",
+      "PİRİNÇ PİLAVI",
+      "KİRAZ"
+    ],
+    "dinner": [
+      "ARPA ŞEHRİYE ÇORBA",
+      "TAVUK FAJİTA",
+      "ZY.KARNABAHAR",
+      "EKLER"
+    ]
+  },
+  "2026-07-14": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "MERCİMEK ÇORBA",
+      "YEŞİL ZEYTİN",
+      "SİMİT",
+      "TEREYAĞ-REÇEL",
+      "ÇAY"
+    ],
+    "lunch": [
+      "EZOGELİN ÇORBA",
+      "ARNAVUT CİĞERİ(120)",
+      "BÖRÜLCE SALATASI",
+      "KAZANDİBİ"
+    ],
+    "dinner": [
+      "TAVUKSUYU ÇORBA",
+      "YUMURTALI ISPANAK",
+      "DOMATESLİ BULGUR PİLAVI",
+      "KASE YOĞURT"
+    ]
+  },
+  "2026-07-15": {
+    "breakfast": [
+      "KAŞAR PEYNİR",
+      "PAÇA ÇORBA",
+      "SİYAH ZEYTİN",
+      "PATATES KIZARTMASI",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "TARHANA ÇORBA",
+      "TAVUK DÜNYASI KÖRİ",
+      "BAHÇIVAN USULÜ MAKARNA",
+      "PANZANELLA SALATA"
+    ],
+    "dinner": [
+      "SEBZE ÇORBA",
+      "FESLEĞEN SOSLU KÖFTE",
+      "MELEK PİLAVI",
+      "ŞEFTALİ"
+    ]
+  },
+  "2026-07-16": {
+    "breakfast": [
+      "YUMURTA",
+      "YAYLA ÇORBA",
+      "YEŞİL ZEYTİN",
+      "AÇMA",
+      "FINDIK EZMESİ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "MERCİMEK ÇORBA",
+      "KARNIYARIK",
+      "TEREYAĞLI BULGUR PİLAVI",
+      "CACIK"
+    ],
+    "dinner": [
+      "YAYLA ÇORBA",
+      "ŞEHRİYELİ GÜVEÇ",
+      "ZY.BARBUNYA",
+      "TİRAMİSU"
+    ]
+  },
+  "2026-07-17": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "MERCİMEK ÇORBA",
+      "SİYAH ZEYTİN",
+      "POĞAÇA",
+      "TEREYAĞ-BAL",
+      "ÇAY"
+    ],
+    "lunch": [
+      "ANADOLU ÇORBA",
+      "ORMAN KEBABI",
+      "ISPANAKLI TEPSİ BÖREK",
+      "ERİK KOMPOSTO"
+    ],
+    "dinner": [
+      "PAÇA ÇORBA",
+      "ETLİ KURU FASULYE",
+      "PİRİNÇ PİLAVI",
+      "TURŞU"
+    ]
+  },
+  "2026-07-18": {
+    "breakfast": [
+      "KREM PEYNİR",
+      "YAYLA ÇORBA",
+      "YEŞİL ZEYTİN",
+      "HAVUÇLU KEK",
+      "TAHİN PEKMEZ",
+      "SÜT"
+    ],
+    "lunch": [
+      "TER.TEL ŞEHRİYE ÇORBA",
+      "KADINBUDU KÖFTE/PÜRE",
+      "ZY.KABAK",
+      "HAŞHAŞLI REVANİ"
+    ],
+    "dinner": [
+      "DOMATES ÇORBA",
+      "BAGET HAŞLAMA",
+      "BULGUR PİLAVI",
+      "ELMA"
+    ]
+  },
+  "2026-07-19": {
+    "breakfast": [
+      "KAŞAR PEYNİR",
+      "MERCİMEK ÇORBA",
+      "SİYAH ZEYTİN",
+      "ELMA DİL.PATATES",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "ARABAŞI ÇORBA",
+      "KIYMALI YUMURTA",
+      "ÖZBEK PİLAVI",
+      "KASE YOĞURT"
+    ],
+    "dinner": [
+      "ÇEŞMİNİGAR ÇORBA",
+      "ET MANGALYON",
+      "SOSLU SPAGETTİ",
+      "AKDENİZ SALATA"
+    ]
+  },
+  "2026-07-20": {
+    "breakfast": [
+      "YUMURTA",
+      "TOYGA ÇORBA",
+      "YEŞİL ZEYTİN",
+      "SİMİT",
+      "TEREYAĞ-REÇEL",
+      "ÇAY"
+    ],
+    "lunch": [
+      "TARHANA ÇORBA",
+      "MANTARLI ET SOTE(120)",
+      "SEBZELİ BULGUR PİLAVI",
+      "KAVUN"
+    ],
+    "dinner": [
+      "SOĞAN ÇORBA",
+      "ETLİ BİBER DOLMA",
+      "NOHUT PİYAZI",
+      "PROFİTEROL"
+    ]
+  },
+  "2026-07-21": {
+    "breakfast": [
+      "LABNE",
+      "EZOGELİN ÇORBA",
+      "SİYAH ZEYTİN",
+      "AÇMA",
+      "FINDIK EZMESİ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "EZOGELİN ÇORBA",
+      "FIRIN TAVUK",
+      "PEYNİRLİ MAKARNA",
+      "ÇOBAN SALATA"
+    ],
+    "dinner": [
+      "KIRMIZI SEBZE ÇORBA",
+      "İSLİM KÖFTE",
+      "ŞEHRİYELİ PİRİNÇ PİLAVI",
+      "CACIK"
+    ]
+  },
+  "2026-07-22": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "MERCİMEK ÇORBA",
+      "YEŞİL ZEYTİN",
+      "PATATES KIZARTMASI",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "GÜLÜKLÜ ÇORBA",
+      "MANTI",
+      "ŞAKŞUKA",
+      "KALBURABASTI"
+    ],
+    "dinner": [
+      "ARPA ŞEHRİYE ÇORBA",
+      "ELBASAN TAVA",
+      "TEREYAĞLI BULGUR PİLAVI",
+      "KAYISI"
+    ]
+  },
+  "2026-07-23": {
+    "breakfast": [
+      "KAŞAR PEYNİR",
+      "SİYAH ZEYTİN",
+      "BUĞDAY ÇORBA",
+      "TEREYAĞ-BAL",
+      "POĞAÇA",
+      "ÇAY"
+    ],
+    "lunch": [
+      "DOMATES ÇORBA",
+      "BELEN KÖFTE",
+      "PİRİNÇ PİLAVI",
+      "KASE YOĞURT"
+    ],
+    "dinner": [
+      "MISIR ÇORBA",
+      "TAVUK SOTE",
+      "CEVİZLİ ERİŞTE",
+      "MEVSİM SALATA"
+    ]
+  },
+  "2026-07-24": {
+    "breakfast": [
+      "KREM PEYNİR",
+      "TAVUKSUYU ÇORBA",
+      "YEŞİL ZEYTİN",
+      "SİMİT",
+      "TAHİN PEKMEZ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "ÇEŞMİNİGAR ÇORBA",
+      "PÜRELİ KEBAP",
+      "ZY.BEZELYE",
+      "SÜTLAÇ"
+    ],
+    "dinner": [
+      "DÜĞÜN ÇORBA",
+      "ETLİ TAZE FASULYE",
+      "PEYNİRLİ TEPSİ BÖREĞİ",
+      "VİŞNE KOMPOSTO"
+    ]
+  },
+  "2026-07-25": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "TOYGA ÇORBA",
+      "SİYAH ZEYTİN",
+      "HAVUÇLU KEK",
+      "DOMATES-SALATALIK",
+      "SÜT"
+    ],
+    "lunch": [
+      "SOĞAN ÇORBA",
+      "ETLİ NOHUT",
+      "MEYHANE PİLAVI",
+      "TURŞU"
+    ],
+    "dinner": [
+      "BROKOLİ ÇORBA",
+      "İZMİR KÖFTE",
+      "ÖZBEK PİLAVI",
+      "KARPUZ"
+    ]
+  },
+  "2026-07-26": {
+    "breakfast": [
+      "LABNE",
+      "EZOGELİN ÇORBA",
+      "YEŞİL ZEYTİN",
+      "ELMA DİL.PATATES",
+      "FINDIK EZMESİ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "YAYLA ÇORBA",
+      "BARBEKÜ SOSLU TAVUK",
+      "SOSLU SPAGETTİ",
+      "PANZANELLA SALATA"
+    ],
+    "dinner": [
+      "TEL ŞEHRİYE ÇORBA",
+      "ETLİ SULTAN KEBABI",
+      "BÖRÜLCE SALATASI",
+      "TRİLEÇE"
+    ]
+  },
+  "2026-07-27": {
+    "breakfast": [
+      "KAŞAR PEYNİR",
+      "MERCİMEK ÇORBA",
+      "SİYAH ZEYTİN",
+      "AÇMA",
+      "TEREYAĞ-REÇEL",
+      "ÇAY"
+    ],
+    "lunch": [
+      "TARHANA ÇORBA",
+      "PATLICAN MUSAKKA",
+      "PİRİNÇ PİLAVI",
+      "CACIK"
+    ],
+    "dinner": [
+      "ŞAFAK ÇORBA",
+      "ÇANAK KÖFTE",
+      "TEREYAĞLI BULGUR PİLAVI",
+      "ŞEFTALİ"
+    ]
+  },
+  "2026-07-28": {
+    "breakfast": [
+      "YUMURTA",
+      "TOYGA ÇORBA",
+      "YEŞİL ZEYTİN",
+      "PATATES KIZARTMASI",
+      "DOMATES-SALATALIK",
+      "ÇAY"
+    ],
+    "lunch": [
+      "MANTAR ÇORBA",
+      "MACAR GULAŞ/PÜRE(120)",
+      "ZY.TAZE FASULYE",
+      "BÖĞÜRTLEN SOSLU MUHALLEBİ"
+    ],
+    "dinner": [
+      "EZOGELİN ÇORBA",
+      "TAVUK ŞİŞ/DOM.BİBER",
+      "BAHÇIVAN USULÜ MAKARNA",
+      "AKDENİZ SALATA"
+    ]
+  },
+  "2026-07-29": {
+    "breakfast": [
+      "KREM PEYNİR",
+      "YAYLA ÇORBA",
+      "SİYAH ZEYTİN",
+      "SİMİT",
+      "TAHİN PEKMEZ",
+      "ÇAY"
+    ],
+    "lunch": [
+      "ARABAŞI ÇORBA",
+      "EKŞİLİ KÖFTE",
+      "SEBZELİ PAÇANGA BÖREĞİ",
+      "KARIŞIK KOMPOSTO"
+    ],
+    "dinner": [
+      "PAÇA ÇORBA",
+      "ETLİ BEZELYE",
+      "ŞEHRİYELİ PİRİNÇ PİLAVI",
+      "HAYDARİ"
+    ]
+  },
+  "2026-07-30": {
+    "breakfast": [
+      "BEYAZ PEYNİR",
+      "YEŞİL ZEYTİN",
+      "MERCİMEK ÇORBA",
+      "TEREYAĞ-BAL",
+      "POĞAÇA",
+      "ÇAY"
+    ],
+    "lunch": [
+      "TER.TEL ŞEHRİYE ÇORBA",
+      "BUT IZGARA/PAT.SOTE",
+      "MEYHANE PİLAVI",
+      "KAVUN"
+    ],
+    "dinner": [
+      "DOMATES ÇORBA",
+      "ET TANTUNİ",
+      "ZY.KABAK",
+      "İRMİK TATLISI"
+    ]
+  },
+  "2026-07-31": {
+    "breakfast": [
+      "YUMURTA",
+      "SİYAH ZEYTİN",
+      "TAVUKSUYU ÇORBA",
+      "FINDIK EZMESİ",
+      "ELMA DİL.PATATES",
+      "ÇAY"
+    ],
+    "lunch": [
+      "MERCİMEK ÇORBA",
+      "FINDIK KÖFTE/YOĞURT",
+      "ERİŞTE KAVURMA",
+      "TİRAMİSU"
+    ],
+    "dinner": [
+      "SOĞAN ÇORBA",
+      "ETLİ KURU FASULYE",
+      "PİRİNÇ PİLAVI",
+      "ÇOBAN SALATA"
+    ]
+  }
+}

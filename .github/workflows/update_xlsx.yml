@@ -1,9 +1,9 @@
-name: Aylık Yemek Listesi Güncelleme
+name: Günlük Yemek Menüsü Güncelleme
 
 on:
   schedule:
-    - cron: '0 0 1 * *'
-  workflow_dispatch:
+    - cron: '0 4 * * *'         # her gün 04:00 UTC (07:00 TR)
+  workflow_dispatch:             # manuel tetikleme
 
 permissions:
   contents: write
@@ -15,17 +15,20 @@ jobs:
       - name: Repo'yu çek
         uses: actions/checkout@v4
 
-      - name: Mevcut xlsx bağlantısını bul ve indir
+      - name: Python bağımlılıkları
+        run: pip install requests openpyxl
+
+      - name: Menüyü indir ve JSON üret
         run: python3 scripts/update_menu.py
 
-      - name: Değişiklikleri kontrol et ve push et
+      - name: Değişiklikleri commit ve push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/yemek_listesi.xlsx
+          git add data/yemek_listesi.xlsx data/menu.json
           if git diff --cached --quiet; then
             echo "Değişiklik yok."
           else
-            git commit -m "Aylık yemek listesi güncellendi - $(date +'%Y-%m-%d')"
+            git commit -m "Menü güncellendi - $(date +'%Y-%m-%d')"
             git push
           fi
