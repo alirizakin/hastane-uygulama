@@ -32,7 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          WebViewWidget(controller: _controller),
+          Positioned.fill(
+            top: 0,
+            child: WebViewWidget(controller: _controller),
+          ),
           if (_isLoading)
             Container(
               color: Colors.white.withOpacity(0.92),
