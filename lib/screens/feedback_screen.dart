@@ -87,11 +87,11 @@ class _HeaderBox extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Row(
+      child: const Row(
         children: [
-          Image.asset('assets/images/logo.png', width: 52, height: 52),
-          const SizedBox(width: 12),
-          const Expanded(
+          Icon(Icons.edit_note_rounded, color: Colors.white, size: 44),
+          SizedBox(width: 12),
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

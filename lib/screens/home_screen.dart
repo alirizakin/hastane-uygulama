@@ -30,7 +30,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Isparta Şehir Hastanesi Asistan'),
+        backgroundColor: const Color(0xFFD32F2F),
+        foregroundColor: Colors.white,
+      ),
       body: SafeArea(
+        top: false,
         child: Stack(
           children: [
             WebViewWidget(controller: _controller),

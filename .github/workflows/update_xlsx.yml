@@ -1,8 +1,8 @@
-name: Günlük Yemek Menüsü Güncelleme
+name: Aylık Yemek Menüsü Güncelleme
 
 on:
   schedule:
-    - cron: '0 4 * * *'         # her gün 04:00 UTC (07:00 TR)
+    - cron: '0 4 1 * *'         # her ayın 1'i 04:00 UTC (07:00 TR)
   workflow_dispatch:             # manuel tetikleme
 
 permissions:

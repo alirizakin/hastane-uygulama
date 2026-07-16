@@ -77,10 +77,15 @@ class _MenuScreenState extends State<MenuScreen> {
     setState(() => _day = _day.subtract(const Duration(days: 1)));
   }
 
+  String _turkishDayName(int weekday) {
+    const days = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
+    return days[weekday - 1];
+  }
+
   @override
   Widget build(BuildContext context) {
     final dateLabel =
-        '${_day.day.toString().padLeft(2, '0')}.${_day.month.toString().padLeft(2, '0')}.${_day.year}';
+        '${_day.day.toString().padLeft(2, '0')}.${_day.month.toString().padLeft(2, '0')}.${_day.year} ${_turkishDayName(_day.weekday)}';
     final menu = _todayMenu;
 
     return Scaffold(

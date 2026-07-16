@@ -94,7 +94,7 @@ class _HeaderStrip extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset('assets/images/logo.png', width: 54, height: 54),
+          const Icon(Icons.local_hospital_rounded, color: Colors.white, size: 44),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
