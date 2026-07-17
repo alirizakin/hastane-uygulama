@@ -52,18 +52,14 @@ android {
         release {
             keyAlias = keystoreProperties.getProperty("keyAlias", "upload")
             keyPassword = keystoreProperties.getProperty("keyPassword", "")
-            storeFile = keystoreProperties.getProperty("storeFile")
-                    ? file(keystoreProperties.getProperty("storeFile"))
-                    : null
             storePassword = keystoreProperties.getProperty("storePassword", "")
+            storeFile = file("hastane-keystore.jks")
         }
     }
 
     buildTypes {
         release {
             signingConfig = signingConfigs.release
-            minifyEnabled = true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
