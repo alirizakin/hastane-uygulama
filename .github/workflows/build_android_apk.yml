@@ -25,7 +25,9 @@ jobs:
           channel: stable
 
       - name: Decode keystore
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/hastane-keystore.jks
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/hastane-keystore.jks
+          cp android/app/hastane-keystore.jks android/hastane-keystore.jks
 
       - name: Create key.properties
         run: |
