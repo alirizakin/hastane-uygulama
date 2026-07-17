@@ -45,3 +45,4 @@ app.*.map.json
 # Keystore
 *.jks
 android/key.properties
+KEYSTORE_BASE64.txt
