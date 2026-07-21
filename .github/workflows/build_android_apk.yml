@@ -24,6 +24,9 @@ jobs:
         with:
           channel: stable
 
+      - name: Flutter doctor
+        run: flutter doctor -v
+
       - name: Decode keystore
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/hastane-keystore.jks
@@ -31,6 +34,8 @@ jobs:
           echo "=== Keystore files ==="
           ls -la android/app/hastane-keystore.jks
           ls -la android/hastane-keystore.jks
+          echo "=== Keystore info ==="
+          keytool -list -v -keystore android/app/hastane-keystore.jks -storepass "${{ secrets.KEYSTORE_PASSWORD }}" -keypass "${{ secrets.KEY_PASSWORD }}"
 
       - name: Create key.properties
         run: |
@@ -51,6 +56,8 @@ jobs:
           ls -la android/app/
           echo "=== key.properties content ==="
           cat android/key.properties
+          echo "=== build.gradle signing config ==="
+          grep -A 20 "signingConfigs" android/app/build.gradle
 
       - name: Flutter pub get
         run: flutter pub get
