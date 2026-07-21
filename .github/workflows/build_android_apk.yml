@@ -28,6 +28,9 @@ jobs:
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/hastane-keystore.jks
           cp android/app/hastane-keystore.jks android/hastane-keystore.jks
+          echo "=== Keystore files ==="
+          ls -la android/app/hastane-keystore.jks
+          ls -la android/hastane-keystore.jks
 
       - name: Create key.properties
         run: |
@@ -37,12 +40,23 @@ jobs:
             "${{ secrets.KEY_ALIAS }}" \
             "hastane-keystore.jks" \
             > android/key.properties
+          echo "=== key.properties ==="
+          cat android/key.properties
+
+      - name: Verify files
+        run: |
+          echo "=== android/ directory ==="
+          ls -la android/
+          echo "=== android/app/ directory ==="
+          ls -la android/app/
+          echo "=== key.properties content ==="
+          cat android/key.properties
 
       - name: Flutter pub get
         run: flutter pub get
 
       - name: Build AAB (Play Store)
-        run: flutter build appbundle --release
+        run: flutter build appbundle --release --verbose
 
       - name: Build APK (direct install)
         run: flutter build apk --release
